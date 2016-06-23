@@ -72,10 +72,38 @@ function LinkedList() {
         }
     };
 
-    this.remove = function(element) {};
-    this.indexOf = function(element) {};
-    this.isEmpty = function() {};
-    this.size = function() {};
-    this.toString = function() {};
-    this.print = function() {};
+    this.remove = function(element) {
+        var index = this.indexOf(element);
+        return this.removeAt(index); 
+    };
+    this.indexOf = function(element) {
+        var current = head, //{1}
+            index = -1;
+        while (current) { //{2}
+            if (element === current.element) {
+                return index; //{3}
+            }
+            index++; //{4}
+            current = current.next; //{5}
+        }
+        return -1;
+    };
+    this.isEmpty = function() {
+        return length === 0;
+    };
+    this.size = function() {
+        return length;
+    };
+    this.toString = function() {
+        var current = head, //{1}
+            string = ''; //{2}
+        while (current) { //{3}
+            string = current.element; //{4}
+            current = current.next; //{5}
+        }
+        return string;
+    };
+    this.getHead = function() {
+        return head;
+    };
 }
